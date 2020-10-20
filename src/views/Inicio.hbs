@@ -1,0 +1,95 @@
+<main class="home">
+    <section class="slider-central" id="slider_central">
+        <i class="fas fa-chevron-left" id='preview'></i>
+        <div class="texto">
+            <h1>CHOCOLATERIA</h1>
+            <a href="/catalogo">
+                <button class="button">
+                    Ver Productos
+                    <div class="button__horizontal"></div>
+                    <div class="button__vertical"></div>
+                </button>
+            </a>
+        </div>
+        <i class="fas fa-chevron-right" id='next'></i>
+    </section>
+    <section class="destacados">
+        <div class="destacados__titulo">
+            <p>Cuidadosamente seleccionados para ti</p>
+            <h1>Productos del mes</h1>
+        </div>
+        <div class="destacados__slider">
+            <div class="carousel">
+                {{#each products}}
+                    <div class="carousel-item">
+                        <h2 class="subtitulo">{{nombre}}</h2>
+                        <div class="linea-division"></div>
+                        <p class="sabor">{{descripcion}}</p>
+                        <img src="images/destacados/{{img}}.webp">
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+        <a href="/catalogo">
+                <button class="button button-slider">
+                    Ver Productos
+                    <div class="button__horizontal"></div>
+                    <div class="button__vertical"></div>
+                </button>
+        </a>
+    </section>
+
+</main>
+
+<script>
+    let slider_central = document.querySelector('.slider-central');
+    let next = document.getElementById('next');
+    let preview = document.getElementById('preview');
+
+    let image = ['cover', 'cover2', 'cover3', 'cover4', 'cover5','cover6','cover7'];
+    let i = image.length;
+
+
+    const nextImage = () => {
+        if (i < image.length) {
+            i = i + 1;
+        } else {
+            i = 1;
+        }
+        slider_central.style.background = `url('../images/${image[i-1]}.webp')`;
+        slider_central.style.backgroundPosition = "center"; 
+        slider_central.style.backgroundSize = "cover";
+        slider_central.style.backgroundRepeat = "no-repeat";
+    };
+
+
+    const previewImage = () => {
+        if (i < image.length+1 && i>1) {
+            i = i - 1;
+        } else {
+            i = image.length;
+        }
+        slider_central.style.background = `url('../images/${image[i-1]}.webp')`;
+        slider_central.style.backgroundPosition = "center"; 
+        slider_central.style.backgroundSize = "cover";
+        slider_central.style.backgroundRepeat = "no-repeat";
+    };
+
+    preview.addEventListener('click', previewImage);
+    next.addEventListener('click', nextImage);
+    setInterval(nextImage , 4000);
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const elementosCarousel = document.querySelectorAll('.carousel');
+
+    M.Carousel.init(elementosCarousel, {
+        duration: 200,
+        dist: -100,
+        shift: 5,
+        padding: 5,
+        numVisible: 3,
+        indicators: true,
+        noWrap: false
+    })
+})
+</script>

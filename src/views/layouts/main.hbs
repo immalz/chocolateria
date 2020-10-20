@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chocolateria</title>
+  <link rel="icon" type="image/png" href="" />
+  <!---MATERIALIZE--->
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <!---CUSTOM CSS--->
+  <link rel="stylesheet" href="css/main.css">
+
+  <!--Pushbar-->
+  <link rel="stylesheet" href="css/pushbar.css">
+</head>
+<body>
+
+  {{> header }}
+
+  {{{ body }}}
+  
+  <a href="https://api.whatsapp.com/send?phone=51922752910&text=Hola!%2C%20estoy%20interesado%20en%20tus%20productos." target="_blank" class="btn-whatsapp">
+    <i class="fab fa-whatsapp"></i></a>
+  {{> footer }}
+
+  <!--FONT AWESOME-->
+  <script src="https://kit.fontawesome.com/022b0abea9.js" crossorigin="anonymous"></script>
+
+  <!---PUSHBAR JS--->
+  <script src="js/pushbar.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    let pushbar = new Pushbar({
+      blur: true,
+      overlay:true
+    });
+  </script>
+</body>
+</html>

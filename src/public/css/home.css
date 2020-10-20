@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+:root {
+    --blanco: #fff;
+    --negro: #000;
+    --sombra: rgba(0, 0, 0, 0.3);
+}
+
+
+/*---------CONTENIDO PRINCIPAL----------*/
+
+.home {
+    width: 100%;
+}
+
+.home .modal {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal__contenido {
+    width: 500px;
+    height: 400px;
+    text-align: center;
+    background: var(--blanco);
+}
+
+.modal__contenido img {
+    width: 80%;
+}
+
+.slider-central {
+    padding: 0 30px;
+    width: 100%;
+    height: 100vh;
+    background: url('../images/cover.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.slider-central::before {
+    content: '';
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    background: var(--sombra);
+}
+
+.slider-central i {
+    font-size: 30px;
+    color: var(--blanco);
+    cursor: pointer;
+    position: relative;
+    -webkit-animation: 1s pulso infinite linear;
+    animation: 1s pulso infinite linear;
+}
+
+@-webkit-keyframes pulso {
+    from {
+        transform: none;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    to {
+        transform: none;
+    }
+}
+
+@keyframes pulso {
+    from {
+        transform: none;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    to {
+        transform: none;
+    }
+}
+
+.slider-central .texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.slider-central .texto h1 {
+    font-weight: 600;
+    font-size: 80px;
+    color: var(--blanco);
+}
+
+.button {
+    --offset: 10px;
+    --border-size: 2px;
+    display: block;
+    position: relative;
+    padding: 1.5em 3em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--blanco);
+    text-transform: uppercase;
+    letter-spacing: .25em;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 0;
+    box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+    transition: background .8s ease;
+}
+
+.button-slider {
+    color: #000;
+}
+
+.button-slider:hover {
+    background: transparent !important;
+}
+
+.button:hover {
+    background: var(--sombra);
+}
+
+.button__horizontal,
+.button__vertical {
+    position: absolute;
+    top: var(--horizontal-offset, 0);
+    right: var(--vertical-offset, 0);
+    bottom: var(--horizontal-offset, 0);
+    left: var(--vertical-offset, 0);
+    transition: transform .8s ease;
+    will-change: transform;
+}
+
+.button__horizontal::before,
+.button__vertical::before {
+    content: '';
+    position: absolute;
+    border: inherit;
+}
+
+.button__horizontal {
+    --vertical-offset: calc(var(--offset) * -1);
+    border-top: var(--border-size) solid currentcolor;
+    border-bottom: var(--border-size) solid currentcolor;
+}
+
+.button__horizontal::before {
+    top: calc(var(--vertical-offset) - var(--border-size));
+    bottom: calc(var(--vertical-offset) - var(--border-size));
+    left: calc(var(--vertical-offset) * -1);
+    right: calc(var(--vertical-offset) * -1);
+}
+
+.button:hover .button__horizontal {
+    transform: scaleX(0);
+}
+
+.button__vertical {
+    --horizontal-offset: calc(var(--offset) * -1);
+    border-left: var(--border-size) solid currentcolor;
+    border-right: var(--border-size) solid currentcolor;
+}
+
+.button__vertical::before {
+    top: calc(var(--horizontal-offset) * -1);
+    bottom: calc(var(--horizontal-offset) * -1);
+    left: calc(var(--horizontal-offset) - var(--border-size));
+    right: calc(var(--horizontal-offset) - var(--border-size));
+}
+
+.button:hover .button__vertical {
+    transform: scaleY(0);
+}
+
+
+/*---------CONTENIDO PRINCIPAL----------*/
+
+.destacados {
+    width: 80%;
+    min-height: calc(100vh - 80px);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.destacados__titulo {
+    font-family: 'Dancing Script', cursive;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.destacados__titulo p {
+    font-size: 25px;
+    font-weight: 300;
+    letter-spacing: 5px;
+}
+
+.destacados__titulo h1 {
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+.sabor {
+    color: #fff;
+    margin: 7px 0;
+    font-size: 50px;
+    font-weight: 600;
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.7);
+    font-family: 'Dancing Script', cursive;
+    margin-top: 0;
+}
+
+.linea-division {
+    width: 80%;
+    height: 2px;
+    background-color: #36221c;
+}
+
+.destacados__slider {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.destacados__slider .carousel {
+    min-height: 500px;
+}
+
+.destacados__slider .carousel .carousel-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    width: 500px;
+    height: 500px;
+}
+
+.destacados__slider .carousel .carousel-item h2 {
+    font-size: 55px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.destacados__slider .carousel .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    border-radius: 15px;
+}
+
+
+/*--------RESPONSIVE--------*/
+
+@media (max-width: 750px) {
+    .slider-central {
+        justify-content: center;
+    }
+    .slider-central .texto h1 {
+        font-size: 50px;
+    }
+    .button {
+        --border-size: 1px;
+        margin-top: 20px;
+        font-size: 12px;
+        padding: .5em 1.5em;
+        letter-spacing: .15em;
+    }
+    .slider-central i {
+        display: none;
+    }
+}

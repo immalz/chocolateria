@@ -1,0 +1,61 @@
+
+<nav class="navbar">
+    <div class="logo"><img src="images/logo.png" alt="Chocolateria"></div>
+    <ul>
+        <li><a class="active" href="/">Inicio</a></li>
+        <li><a href="/catalogo">Catalogo</a>
+            <ul class="menu-extra">
+                <div class="menu-extra__enlace">
+                    <li><a href="#">Pasteles</a></li>
+                    <li><a href="#">Chocolates</a></li>
+                    <li><a href="#">Dulces</a></li>
+                    <li><a href="#">Tartas</a></li>
+                </div>
+                <div class="menu-extra__image">
+                    <img src="images/productos.webp" alt="">
+                </div>
+            </ul>
+        </li>
+        <li><a href="/servicios">Servicios</a>
+        <ul class="menu-extra">
+                <div class="menu-extra__enlace">
+                    <li><a href="#">Detalles</a></li>
+                    <li><a href="#">Regalos</a></li>
+                    <li><a href="#">Mensajes Personalizados</a></li>
+                </div>
+                <div class="menu-extra__image">
+                    <img src="images/servicios.webp" alt="">
+                </div>
+            </ul>
+        </li>
+        <li><a href="#">Donde comprar</a></li>
+        <li><a href="#">Preguntas Frecuentes</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+    </ul>
+    <div class="navegation">
+        <a data-pushbar-target="pushbar-carrito" class="carrito"><i class="fas fa-shopping-cart"></i></a>
+        <a data-pushbar-target="pushbar-menu" class="menu-btn"><i class="fas fa-bars"></i></a>
+    </div>
+</nav>
+<div class="espacio"></div>
+
+
+<!--MENU RESPOSIVO-->
+<div data-pushbar-id="pushbar-menu" class="pushbar-menu" data-pushbar-direction="left">
+    <h1>Catalogo de productos</h1>
+</div>
+
+
+<!--Carrito de compra-->
+<div data-pushbar-id="pushbar-carrito" class="pushbar-menu" data-pushbar-direction="right">
+    <h1>Carrito de compra</h1>
+</div>
+
+<script>
+    window.addEventListener('scroll', () => {
+        let navbar = document.querySelector('.navbar');
+        
+        navbar.classList.toggle('sticky', window.scrollY > 0)
+    })
+</script>
+

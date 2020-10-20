@@ -1,0 +1,25 @@
+{
+    "name": "chocolateria",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon src/index.js",
+        "start": "node src/index.js",
+        "sass": "node-sass --watch src/public/scss/ -o src/public/css/"
+    },
+    "keywords": [],
+    "author": "Marco Alzamora Cueto",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-handlebars": "^5.1.0",
+        "handlebars": "^4.7.6",
+        "mongoose": "^5.10.9"
+    },
+    "devDependencies": {
+        "node-sass": "^4.14.1",
+        "nodemon": "^2.0.6"
+    }
+}
